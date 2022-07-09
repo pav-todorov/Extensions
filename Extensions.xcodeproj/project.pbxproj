@@ -11,6 +11,9 @@
 		E9363DFE28798C0F00563999 /* Extensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9363DF328798C0F00563999 /* Extensions.framework */; };
 		E9363E0328798C0F00563999 /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9363E0228798C0F00563999 /* ExtensionsTests.swift */; };
 		E9363E0428798C0F00563999 /* Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = E9363DF628798C0F00563999 /* Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9363E1228798C6100563999 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9363E1128798C6100563999 /* URLSession.swift */; };
+		E9363E1528798C9E00563999 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E9363E1428798C9E00563999 /* RxCocoa */; };
+		E9363E1728798C9E00563999 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E9363E1628798C9E00563999 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,7 @@
 		E9363DF728798C0F00563999 /* Extensions.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Extensions.docc; sourceTree = "<group>"; };
 		E9363DFD28798C0F00563999 /* ExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExtensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9363E0228798C0F00563999 /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
+		E9363E1128798C6100563999 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9363E1728798C9E00563999 /* RxSwift in Frameworks */,
+				E9363E1528798C9E00563999 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +77,7 @@
 		E9363DF528798C0F00563999 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E9363E1028798C5400563999 /* Foundation */,
 				E9363DF628798C0F00563999 /* Extensions.h */,
 				E9363DF728798C0F00563999 /* Extensions.docc */,
 			);
@@ -83,6 +90,14 @@
 				E9363E0228798C0F00563999 /* ExtensionsTests.swift */,
 			);
 			path = ExtensionsTests;
+			sourceTree = "<group>";
+		};
+		E9363E1028798C5400563999 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				E9363E1128798C6100563999 /* URLSession.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,6 +128,10 @@
 			dependencies = (
 			);
 			name = Extensions;
+			packageProductDependencies = (
+				E9363E1428798C9E00563999 /* RxCocoa */,
+				E9363E1628798C9E00563999 /* RxSwift */,
+			);
 			productName = Extensions;
 			productReference = E9363DF328798C0F00563999 /* Extensions.framework */;
 			productType = "com.apple.product-type.framework";
@@ -162,6 +181,9 @@
 				Base,
 			);
 			mainGroup = E9363DE928798C0F00563999;
+			packageReferences = (
+				E9363E1328798C9E00563999 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = E9363DF428798C0F00563999 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -194,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9363E1228798C6100563999 /* URLSession.swift in Sources */,
 				E9363DF828798C0F00563999 /* Extensions.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +417,7 @@
 		E9363E0B28798C0F00563999 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -409,6 +433,7 @@
 		E9363E0C28798C0F00563999 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -452,6 +477,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E9363E1328798C9E00563999 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E9363E1428798C9E00563999 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9363E1328798C9E00563999 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		E9363E1628798C9E00563999 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9363E1328798C9E00563999 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E9363DEA28798C0F00563999 /* Project object */;
 }
