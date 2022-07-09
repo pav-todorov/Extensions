@@ -8,6 +8,7 @@
 import RxSwift
 import RxCocoa
 import Combine
+import UIKit
 
 public struct Resources<T> {
     // MARK: Properties
@@ -21,6 +22,7 @@ public struct Resources<T> {
 
 // MARK: RxSwift Specific
 public extension URLRequest {
+    // TODO: Add caching
     static func load<T: Decodable>(resources: Resources<T>) -> Observable<T> {
         return Observable.from([resources.url])
             .flatMap { url -> Observable<Data> in
@@ -32,10 +34,23 @@ public extension URLRequest {
             }
             .asObservable()
     }
+    
+    static func loadImage(resources: Resources<Any>) -> Observable<UIImage?> {
+        return Observable.from([resources.url])
+            .flatMap { url -> Observable<Data> in
+                let request = URLRequest(url: url)
+                return URLSession.shared.rx.data(request: request)
+            }
+            .map { data in
+                return UIImage(data: data)
+            }
+            .asObservable()
+    }
 }
 
 // MARK: Combine Specific
 public extension URLRequest {
+    // TODO: Add caching
     static func load<T: Decodable>(resources: Resources<T>) -> AnyPublisher<T, Error> {
         return URLSession.shared
             .dataTaskPublisher(for: resources.url)
