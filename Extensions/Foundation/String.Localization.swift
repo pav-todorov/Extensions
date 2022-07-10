@@ -9,25 +9,7 @@ import Foundation
 
 // MARK: - Localized String
 public extension String {
-    func localized() -> String {
-        
-//        public var localized: String {
-//            let localisationFromMainBundle = NSLocalizedString(self,
-//                                                               tableName: nil,
-//                                                               bundle: .main,
-//                                                               value: "",
-//                                                               comment: "")
-//            if localisationFromMainBundle == self {
-//                return NSLocalizedString(self,
-//                                         tableName: nil,
-//                                         bundle: .module,
-//                                         value: "",
-//                                         comment: "")
-//            } else {
-//                return localisationFromMainBundle
-//            }
-//        }
-        
+    func localized(for bundleId: Bundle? = nil) -> String {
         return NSLocalizedString(
             self,
             tableName: "Localizable",
